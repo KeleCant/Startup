@@ -4,7 +4,7 @@
 
 ### Elevator pitch
 
-Have you ever wanted to try something new but didn't know where to go to do it? With my new websight "What to Do" you get acces to every loved and favorite place in the area. You can check locations out for yourself and leave a comment on if youd recomend taking the trip. Help other people to have a fun night by adding new location that you discover, you never know maybe you will discover the next big hit.
+Have you ever been Bored? Have you ever wondered what should I do tonight but, had no ideas? With my new website "What to Do" you get access to beloved places in the area. You can see what's nearby. After visiting you can leave a comment to help other people have a fun night. If you discover a cool place you can add it, you never know maybe you will discover the next big hit.
 
 ### Design
 
