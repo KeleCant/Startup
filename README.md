@@ -10,30 +10,42 @@ Have you ever been Bored? Have you ever wondered what should I do tonight but, h
 
 ![Mock](ModelDiagram.png)
 
-This websight has 3 main pages:
-    1st - There is the login Page
-    2nd - There is The browing page which diplays nearby locations
-    3rd - There is the adding location page which will grab your location or an adress and create a new page for that location.
+This websight has 4 main pages:
+    1st - The login Page
+    2nd - The browing page which diplays nearby locations
+    3rd - Each location has its own page for comments and reviews
+    4rd - the adding location page which will create a new location page
 
 ### Key features
 
-- Secure login over HTTPS
-- Display of multiple locationsbased on distance and reviews
+- Secure login
+- Display of multiple locations based on distance and reviews
 - Ability to comment and review places
 - Ability to add new location
 
 ### Technologies
 
-I am going to use the required technologies in the following ways.
+These technologies will be used in the following ways.
 
 - **HTML** - Basic structural and organization of websight
-- **CSS** - Styling and animating page changes
+- **CSS** - Styling and animating page changes and button clicks
 - **JavaScript** - Interactivity, switching pages and allowing you to click on buttons
 - **Web Service** - Remote functions that pulls from data base of locations and reviews
 - **Authentication** - Creating accounts and logging in
 - **Database persistence** - Storing user data in a database - stores comments and reviews
 - **WebSocket** - Will store the comments and upload them to server
 - **Web Framework** - Using React to add components and request routing
+
+
+
+
+
+
+
+
+
+
+
 
 ## HTML deliverable
 
