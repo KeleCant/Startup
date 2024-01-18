@@ -11,10 +11,10 @@ Have you ever been Bored? Have you ever wondered what should I do tonight but, h
 ![](ModelDiagram.png)
 
 This websight has 4 main pages:
-1st - The login Page
-2nd - The browing page which diplays nearby locations
-3rd - Each location has its own page for comments and reviews
-4rd - the adding location page which will create a new location page
+1. The login Page
+1. The browing page which diplays nearby locations
+1. Each location has its own page for comments and reviews
+1. the adding location page which will create a new location page
 
 ### Key features
 
