@@ -15,4 +15,15 @@
     Superscript - <sub> </sub>
     quotes >text
 
-### Getting into a server
+### Setting Up A server
+Key pair Nanosupport309998
+3.231.207.24
+
+Shell into websight
+ssh -i ~/"CS 260"/Nanosupport309998.pem ubuntu@3.231.207.24
+
+to see Caddyfiles,public_html, and services
+ls -1
+
+Access  URL Nonchanging
+http://34.202.15.126/
