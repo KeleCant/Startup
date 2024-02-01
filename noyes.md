@@ -30,3 +30,11 @@ ls -1
 
 Access  URL Nonchanging
 http://34.202.15.126/
+
+### Deploying Files to HTML
+- place files you want to deploy in workspace (for me this is my startup git hub repo)
+- change directories to the folder you want to deploy
+- use this command to deploy
+```
+$ ./deployFiles.sh -k ~/"CS 260"/Nanosupport309998.pem -h provo-must-do.xyz -s simon
+```
