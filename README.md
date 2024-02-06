@@ -35,3 +35,10 @@ These technologies will be used in the following ways.
 - **Database persistence** - Storing user data in a database - stores comments and reviews
 - **WebSocket** - Will store the comments and upload them to server
 - **Web Framework** - Using React to add components and request routing
+
+- ### HTML
+- used to for the basic framework of my program
+- used to navigate between pages
+- used to input data that will later be stored and used
+- used to connect my websight to my github
+- 
