@@ -1,7 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-    <header> What To Do: Provo </header>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title> What To Do: Provo </title>
+    </head>
 
+    <body>
+        <h1>Welcome Username </h1>
+        <main>
+          <h1>Add Location</h1>
+          <p></p>
+          <form method="get" action="locationlist.html">
+            <div>
+            <label for="location">location</label>
+            <input type="text" id="location" placeholder="type in your location here" />
+            </div>
+
+            <div>
+            <label for="Rewiew">How was it?</label>
+            <input type="text" id="Rewiew" placeholder="What were you thoughts" />
+            </div>
+
+        
+            <div>
+                <form action="/action_page.php">
+                    <label for="img">Upload an image:</label>
+                    <input type="file" id="img" name="img" accept="image/*">
+                  </form>
+            </div>
+
+
+            <div>
+                <label for="Would yo go again"> Would you go again? </label>
+            </div>
+            
+            <div>
+            <input type="checkbox" id="Yes" name="Would you go again" value="Yes">
+            <label for="Yes"> Yes </label><br>
+            <input type="checkbox" id="No" name="Would you go again" value="No">
+            <label for="No"> No </label><br>
+            </div>
+
+            <button type="submit">Add</button>
+          </form>
+        </main>
+
+
+
+
+
+    <h1> Quick Links </h1>
+      <nav>
+        <menu>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="locationlist.html">Locations</a></li>
+          <li><a href="addlocations.html">Add Location</a></li>
+          <li><a href="about.html">About</a></li>
+        </menu>
+      </nav>
+
+
+    <footer>
+      <hr />
+      <span class="text-reset"></span>
+      <br />
+      <a href="https://github.com/KeleCant/Startup">GitHub</a>
+    </footer>
     
 
 </html>
