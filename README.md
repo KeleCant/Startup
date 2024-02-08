@@ -41,4 +41,5 @@ These technologies will be used in the following ways.
 - used to navigate between pages
 - used to input data that will later be stored and used
 - used to connect my websight to my github
-- 
+- Added new HTML file, about.html, addlocations.html, index.html, locationlist.html, TheTaste.html
+- Added to each html page a way to connect to other html files
