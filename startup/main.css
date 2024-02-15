@@ -1,103 +1,89 @@
 /* body {
-    display: flex;
-    flex-direction: column;
-    min-width: 375px;
-  }
-  
-  header {
-    flex: 0 80px;
-  }
-  
-  main {
-    flex: 1 calc(100vh - 110px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-  }
-  
-  footer {
-    flex: 0 30px;
-  }
-  
-  menu {
-    flex: 1;
-    display: flex;
-    <!-- overwrite Bootstrap so the menu does not wrap -->
-    flex-direction: row !important;
-    list-style: none;
-  }
-  
-  .navbar-brand {
-    padding-left: 0.3em;
-    border-bottom: solid rgb(182, 182, 182) thin;
-  }
-  
-  menu .nav-item {
-    padding: 0 0.3em;
-  }
-  
-  footer a {
-    float: right;
-  }
-  
-  @media (max-height: 600px) {
-    header {
-      display: none;
-    }
-    footer {
-      display: none;
-    }
-    main {
-      flex: 1 100vh;
-    }
-  } */
+  background: white;
+  font-family: sans-serif;
 
-  html {
-    height: 100%;
-  }
-  
-  body {
-    font-family: sans-serif;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    color: #eeeeee;
-  
-    header {
+  header {
+    background: #2244aa;
+    padding: 0.75em;
+
+    .inline {
+      display: inline;
+      color: #eeeeee;
+      padding: 0.25em;
       font-size: 20px;
-      background: #2244aa;
-      color: white;
-  
-      display: flex;
-      flex-direction: row;
-      justify-content: start;
-      align-items: center;
-  
-      div {
-        padding: 0.75em;
-      }
     }
-    main {
-      /*changing this value between 0-1 changes box size*/
-      flex: 1;
-      font-size: 30px;
-      color: black;
-  
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+  }
+
+  main {
+    text-align: center;
+    font-size: 30px;
+  }
+
+  footer {
+    background: #1c352d;
+    color: #eeeeee;
+    text-align: center;
+    float: bottom;
+  }
+} */
+
+/*essential for deffining flex*/
+html {
+  height: 100%;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: #eeeeee;
+
+  header {
+    font-size: 20px;
+    background: #abf7b1;
+    color: white;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+
+    div {
+      padding: 0.75em;
     }
   }
   
-  footer {
+/*   head{
     flex: 0 50px;
-    background: #1c352d;
-  
+    background: #ccccff;
+
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-  }
+  } */
+  
+  main {
+    /*changing this value between 0-1 changes box size*/
+    flex: 1;
+    font-size: 30px;
+    color: black;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+footer {
+  flex: 0 50px;
+  background: #ccccff;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+}
