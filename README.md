@@ -43,3 +43,10 @@ These technologies will be used in the following ways.
 - used to connect my websight to my github
 - Added new HTML file, about.html, addlocations.html, index.html, locationlist.html, TheTaste.html
 - Added to each html page a way to connect to other html files
+
+### CSS 
+- Created one main CSS file for each HTML file
+- Went back through each HTML file and remodeled them to fit CSS requirments
+- Created navagation bar on the top of the page to easily switch between pages
+- modified old CSS code to create git hub button on the bottem of the page.
+- removed coppy and paste buggs and changed everything to have a uniform system that CSS can structure
