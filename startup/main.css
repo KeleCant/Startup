@@ -48,6 +48,8 @@ body {
   footer {
     flex: 0 50px;
     background: #ccccff;
+    height: 100px;
+    padding: 10px;
 
     display: flex;
     flex-direction: row;
