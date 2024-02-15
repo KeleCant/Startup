@@ -50,3 +50,4 @@ These technologies will be used in the following ways.
 - Created navagation bar on the top of the page to easily switch between pages
 - modified old CSS code to create git hub button on the bottem of the page.
 - removed coppy and paste buggs and changed everything to have a uniform system that CSS can structure
+- Added bootstrap functionality and style to the code
