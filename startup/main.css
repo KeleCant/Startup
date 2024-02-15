@@ -9,8 +9,6 @@ body {
   flex-direction: column;
   height: 100%;
   color: #eeeeee;
-  height: 120px;
-  padding: 10px;
 
   header {
     font-size: 20px;
