@@ -23,6 +23,14 @@ body {
     div {
       padding: 0.75em;
     }
+
+    li {
+      border-radius: 10px;
+      background: #b49494e3;
+      padding: 1em;
+      margin-bottom: 1em;
+    }
+
   }
 
   main {
