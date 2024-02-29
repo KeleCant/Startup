@@ -26,16 +26,16 @@ class displayInfo {
 
 function createLocation (){
     //this function will create a class and store information in this class then bring the user to the new page
-    const locationname = document.querySelector("#locationname");
-    localStorage.setItem("locationname", adress.value);
-    const adress = document.querySelector("#adress");
-    localStorage.setItem("Adress", adress.value);
-    const review = document.querySelector("#review");
-    localStorage.setItem("Review", review.value);
-    const again = document.querySelector("#again");
-    localStorage.setItem("again", username.value);
+    // const locationname = document.querySelector("#locationname");
+    // localStorage.setItem("locationname", adress.value);
+    // const adress = document.querySelector("#adress");
+    // localStorage.setItem("Adress", adress.value);
+    // const review = document.querySelector("#review");
+    // localStorage.setItem("Review", review.value);
+    // const again = document.querySelector("#again");
+    // localStorage.setItem("again", username.value);
 
-    new displayInfo(locationname,adress,review,again);
+    //new displayInfo(locationname,adress,review,again);
     //moves user to the custom page
-    window.location.href = "LocationInfo.html";
+    window.location.href = "TheTaste.html";
 }
