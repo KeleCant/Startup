@@ -16,6 +16,10 @@ localStorage.setItem("userName", nameEl.value);
 // 5. place a chatbox in page
 // 6. modify locations list to be dependant on locations data
 
+// class LocationData {
+//     LocationData()
+// }
+
 
 function createLocation (){
     //this function will create a class and store information in this class then bring the user to the new page
