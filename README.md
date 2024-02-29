@@ -52,9 +52,9 @@ These technologies will be used in the following ways.
 - removed coppy and paste buggs and changed everything to have a uniform system that CSS can structure
 - Added bootstrap functionality and style to the code
 
-  ### JavaScript
-  - Gave functionality to the button on index.html
-  - Created data store for info entered on index.html
-  - Created new JavaScript file titled LocationInfo.js This file is to store new information to create a page that displays information.
-  - Created function called createLocation to store data from the addlocation.html page
+### JavaScript
+- Gave functionality to the button on index.html
+- Created data store for info entered on index.html
+- Created new JavaScript file titled LocationInfo.js This file is to store new information to create a page that displays information.
+- Created function called createLocation to store data from the addlocation.html page
     
