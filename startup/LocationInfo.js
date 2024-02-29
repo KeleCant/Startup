@@ -37,7 +37,7 @@ function createLocation () {
 
     //new displayInfo(locationname,adress,review,again);
     //moves user to the custom page
-    window.location.href = "TheTaste.html";
+    window.location.href = "LocationInfo.html";
 }
 
 function addInfo () {
