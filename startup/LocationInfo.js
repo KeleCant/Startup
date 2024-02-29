@@ -1,13 +1,6 @@
 const nameEl = document.querySelector("#name");
 localStorage.setItem("userName", nameEl.value);
 
-//Items I need to store
-//LocationName
-//Review 1
-//Recomendation
-//Comments
-
-
 
 //Total overview
 // 2. create Location class that stores data
@@ -16,9 +9,13 @@ localStorage.setItem("userName", nameEl.value);
 // 5. place a chatbox in page
 // 6. modify locations list to be dependant on locations data
 
-// class LocationData {
-//     LocationData()
-// }
+class displayInfo {
+    locationName = null;
+    Adress = null;
+    Review = [];
+    again = [];
+    comments = [];
+}
 
 
 function createLocation (){
