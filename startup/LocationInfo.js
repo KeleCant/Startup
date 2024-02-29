@@ -24,10 +24,10 @@ class displayInfo {
 }
 
 
-function createLocation (){
+function createLocation () {
     //this function will create a class and store information in this class then bring the user to the new page
-    // const locationname = document.querySelector("#locationname");
-    // localStorage.setItem("locationname", adress.value);
+    const locationname = document.querySelector("#locationname");
+    localStorage.setItem("locationname", adress.value);
     // const adress = document.querySelector("#adress");
     // localStorage.setItem("Adress", adress.value);
     // const review = document.querySelector("#review");
@@ -38,4 +38,10 @@ function createLocation (){
     //new displayInfo(locationname,adress,review,again);
     //moves user to the custom page
     window.location.href = "TheTaste.html";
+}
+
+function addInfo () {
+    //update display
+    this.Review.add(rv);
+    this.again.add(ag);
 }
