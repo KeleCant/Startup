@@ -26,7 +26,7 @@ class displayInfo {
 function createLocation () {
     //this function will create a class and store information in this class then bring the user to the new page
     const locationname = document.querySelector("#locationname");
-    localStorage.setItem("locationname", locationname.value);
+    localStorage.setItem("locationName", locationname.value);
         //this code breaks
     const adress = document.querySelector("#adress");
     localStorage.setItem("adress", adress.value);
@@ -35,7 +35,7 @@ function createLocation () {
     // localStorage.setItem("review", review.value);
         
     // const again = document.querySelector("#again");
-    // localStorage.setItem("again", username.value);
+    // localStorage.setItem("again", again.value);
 
     //new displayInfo(locationname,adress,review,again);
     //moves user to the custom page
@@ -46,4 +46,16 @@ function addInfo () {
     //update display
     this.Review.add(rv);
     this.again.add(ag);
+}
+
+function getPlayerName() {
+    return localStorage.getItem('userName') ?? 'Mystery player';
+  }
+
+function getLocationName() {
+    return localStorage.getItem('locationName') ?? 'Unknown Location';
+}
+
+function getAdress() {
+    return localStorage.getItem('adress') ?? 'No adress found';
 }
