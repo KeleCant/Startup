@@ -58,4 +58,6 @@ These technologies will be used in the following ways.
 - Created new JavaScript file titled LocationInfo.js This file is to store new information to create a page that displays information.
 - Created function called createLocation to store data from the addlocation.html page
 - modified HTLM pages to work with new functions
+- Created DisplayInfo class that will be used to modify an HTML function with new information
+- 
     
