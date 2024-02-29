@@ -59,5 +59,5 @@ These technologies will be used in the following ways.
 - Created function called createLocation to store data from the addlocation.html page
 - modified HTLM pages to work with new functions
 - Created DisplayInfo class that will be used to modify an HTML function with new information
-- 
+- Created new function for each page that updates the display and database
     
