@@ -23,6 +23,8 @@ localStorage.setItem("userName", nameEl.value);
 
 function createLocation (){
     //this function will create a class and store information in this class then bring the user to the new page
+    const locationname = document.querySelector("#locationname");
+    localStorage.setItem("locationname", adress.value);
     const adress = document.querySelector("#adress");
     localStorage.setItem("Adress", adress.value);
     const review = document.querySelector("#review");
