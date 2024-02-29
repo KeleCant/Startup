@@ -15,6 +15,12 @@ class displayInfo {
     Review = [];
     again = [];
     comments = [];
+    displayInfo(ln, ad, rv, ag){
+        this.locationName = ln;
+        this.Adress = ad;
+        this.Review.add(rv);
+        this.again.add(ag);
+    }
 }
 
 
@@ -28,5 +34,8 @@ function createLocation (){
     localStorage.setItem("Review", review.value);
     const again = document.querySelector("#again");
     localStorage.setItem("again", username.value);
-    window.location.href = "LocationInfo.html"; //Change this to sent to custom page
+
+    new displayInfo(locationname,adress,review,again);
+    //moves user to the custom page
+    window.location.href = "LocationInfo.html";
 }
