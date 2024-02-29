@@ -18,11 +18,12 @@ localStorage.setItem("userName", nameEl.value);
 
 
 function createLocation (){
+    //this function will create a class and store information in this class then bring the user to the new page
     const adress = document.querySelector("#adress");
     localStorage.setItem("Adress", adress.value);
     const review = document.querySelector("#review");
     localStorage.setItem("Review", review.value);
     const again = document.querySelector("#again");
     localStorage.setItem("again", username.value);
-
+    window.location.href = "LocationInfo.html"; //Change this to sent to custom page
 }
