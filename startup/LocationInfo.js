@@ -3,11 +3,10 @@ localStorage.setItem("userName", nameEl.value);
 
 
 //Total overview
-// 2. create Location class that stores data
-// 3. make the add button store data
-// 4. modify generic page to display data from location class
-// 5. place a chatbox in page
-// 6. modify locations list to be dependant on locations data
+// 1. make the add button store data
+// 2. modify generic page to display data from location class
+// 3. place a chatbox in page
+// 4. modify locations list to be dependant on locations data
 
 class displayInfo {
     locationName = null;
@@ -27,11 +26,14 @@ class displayInfo {
 function createLocation () {
     //this function will create a class and store information in this class then bring the user to the new page
     const locationname = document.querySelector("#locationname");
-    localStorage.setItem("locationname", adress.value);
+    localStorage.setItem("locationname", locationname.value);
+        //this code breaks
     const adress = document.querySelector("#adress");
-    localStorage.setItem("Adress", adress.value);
+    localStorage.setItem("adress", adress.value);
+        //this code breaks
     // const review = document.querySelector("#review");
-    // localStorage.setItem("Review", review.value);
+    // localStorage.setItem("review", review.value);
+        
     // const again = document.querySelector("#again");
     // localStorage.setItem("again", username.value);
 
