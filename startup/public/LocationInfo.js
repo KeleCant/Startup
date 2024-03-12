@@ -29,24 +29,24 @@ function displayInformation(PageData) {
 async function LoadList() {
     try {
         // Get the latest high scores from the service
-        const response = await fetch('/api/LoadData');
-        PageData = await response.json();
+        const response = await fetch('/api/LoadList');
+        LoadList = await response.json();
     
         // Save the scores in case we go offline in the future
-        localStorage.setItem('PageData', JSON.stringify(PageData));
+        localStorage.setItem('LoadList', JSON.stringify(LoadList));
       } catch {
         // If there was an error then just use the last saved scores
-        const PageDataText = localStorage.getItem('PageData');
+        const PageDataText = localStorage.getItem('LoadList');
         if (PageDataText) {
-            PageData = JSON.parse(PageDataText);
+            LoadList = JSON.parse(PageDataText);
         }
       }
     
-      displayInformation(PageData);
+      displayListInformation(LoadList);
 }
 
 //this function will display all the json data on the LocationList.html
-function displayInformation(PageData) {
+function displaylistInformation(LoadList) {
     
 }
 
