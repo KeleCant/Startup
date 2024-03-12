@@ -43,8 +43,8 @@
         .then((data) => {
           const containerEl = document.querySelector('#picture');
 
-          const width = containerEl.offsetWidth;
-          const height = containerEl.offsetHeight;
+          const width = 1250;
+          const height = 175;
 
           const imgUrl = `https://picsum.photos/id/${data[0].id}/${width}/${height}?grayscale`;
           const imgEl = document.createElement('img');
