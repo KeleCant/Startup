@@ -36,9 +36,9 @@ async function LoadList() {
         localStorage.setItem('LoadList', JSON.stringify(LoadList));
       } catch {
         // If there was an error then just use the last saved scores
-        const PageDataText = localStorage.getItem('LoadList');
-        if (PageDataText) {
-            LoadList = JSON.parse(PageDataText);
+        const loadDataText = localStorage.getItem('LoadList');
+        if (loadDataText) {
+            LoadList = JSON.parse(loadDataText);
         }
       }
     
