@@ -69,5 +69,5 @@ These technologies will be used in the following ways.
  - installed express package of node
  - created index.js file
  - created new service within index.js for get "/LoadList", get "/LoadData", and post "/AddLocation"
- - modified .js folders in public folder to use services
+ - modified .js folders in public folder to call services
  - added third party service to program in the about page
