@@ -14,22 +14,25 @@ app.use(express.static('public'));
 const apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
+
+
 // Load Location List
-apiRouter.get('/scores', (_req, res) => {
-  res.send(scores);
+apiRouter.get('/LoadList', (_req, res) => {
+  res.send(locationList);
 });
 
 // Load Location Data
-apiRouter.post('/score', (req, res) => {
-  scores = updateScores(req.body, scores);
-  res.send(scores);
+apiRouter.get('/LoadData', (req, res) => {
+  res.send(locationList[req.body]); //with this code every location will need an id
 });
 
 // Add Location
-apiRouter.post('/score', (req, res) => {
-  scores = updateScores(req.body, scores);
-  res.send(scores);
+apiRouter.post('/AddLocation', (req, res) => {
+  locationList.push(req.body);
+  res.send(locationList);
 });
+
+
 
 // Return the application's default page if the path is unknown
 app.use((_req, res) => {
@@ -39,3 +42,6 @@ app.use((_req, res) => {
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
+
+
+let locationList = [];
