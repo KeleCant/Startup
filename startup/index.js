@@ -14,12 +14,18 @@ app.use(express.static('public'));
 const apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
-// GetScores
+// Load Location List
 apiRouter.get('/scores', (_req, res) => {
   res.send(scores);
 });
 
-// SubmitScore
+// Load Location Data
+apiRouter.post('/score', (req, res) => {
+  scores = updateScores(req.body, scores);
+  res.send(scores);
+});
+
+// Add Location
 apiRouter.post('/score', (req, res) => {
   scores = updateScores(req.body, scores);
   res.send(scores);
