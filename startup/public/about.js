@@ -16,3 +16,42 @@ function getPicsumInfo() {
             });
     });
 }
+
+// function displayPicture() {
+//     const random = Math.floor(Math.random() * 1000);
+//     fetch(`https://picsum.photos/v2/list?page=${random}&limit=1`)
+//       .then((response) => response.json())
+//       .then((data) => {
+//         const containerEl = document.querySelector('#picture');
+  
+//         const width = containerEl.offsetWidth;
+//         const height = containerEl.offsetHeight;
+  
+//         const imgUrl = `https://picsum.photos/id/${data[0].id}/${width}/${height}?grayscale`;
+//         const imgEl = document.createElement('img');
+//         imgEl.setAttribute('src', imgUrl);
+//         containerEl.appendChild(imgEl);
+//       });
+//   }
+
+
+  function displayPicture() {
+    console.log("Function called");
+    const random = Math.floor(Math.random() * 1000);
+    fetch(`https://picsum.photos/v2/list?page=${random}&limit=1`)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Data received:", data);
+        const containerEl = document.querySelector('#picture');
+  
+        const width = containerEl.offsetWidth;
+        const height = containerEl.offsetHeight;
+  
+        const imgUrl = `https://picsum.photos/id/${data[0].id}/${width}/${height}?grayscale`;
+        console.log("Image URL:", imgUrl);
+        const imgEl = document.createElement('img');
+        imgEl.setAttribute('src', imgUrl);
+        containerEl.appendChild(imgEl);
+      })
+      .catch(error => console.error("Error fetching data:", error));
+  }
