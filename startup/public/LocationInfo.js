@@ -2,7 +2,7 @@ const nameEl = document.querySelector("#name");
 localStorage.setItem("userName", nameEl.value);
 
 //calls Location Data service
-async function displayInfo() {
+async function LoadInfo() {
   try {
     // Get the latest high scores from the service
     const response = await fetch('/api/LoadData');
@@ -18,27 +18,67 @@ async function displayInfo() {
     }
   }
 
-  displayScores(PageData);
+  displayInformation(PageData);
+}
+
+//this function will display all the json data from the PageData and display it from the on the LocationInfo.html page
+function displayInformation(PageData) {
+    
+}
+
+async function LoadList() {
+    try {
+        // Get the latest high scores from the service
+        const response = await fetch('/api/LoadData');
+        PageData = await response.json();
+    
+        // Save the scores in case we go offline in the future
+        localStorage.setItem('PageData', JSON.stringify(PageData));
+      } catch {
+        // If there was an error then just use the last saved scores
+        const PageDataText = localStorage.getItem('PageData');
+        if (PageDataText) {
+            PageData = JSON.parse(PageDataText);
+        }
+      }
+    
+      displayInformation(PageData);
+}
+
+//this function will display all the json data on the LocationList.html
+function displayInformation(PageData) {
+    
 }
 
 
-function createLocation () {
+async function createLocation () {
     //this function will create a class and store information in this class then bring the user to the new page
     const locationname = document.querySelector("#locationname");
     localStorage.setItem("locationName", locationname.value);
         
     const adress = document.querySelector("#adress");
     localStorage.setItem("adress", adress.value);
-        
-    //this will be web stock data
-    //const uReview = document.querySelector("#uReview");
-    //localStorage.setItem("uReview", uReview.value);
-        
+  
     const again = document.querySelector("#again");
     localStorage.setItem("again", again.value);
 
-    //new displayInfo(locationname,adress,review,again);
-    //moves user to the custom page
+    const newLocation = {locationName: userName, adress: score, again: date, };
+
+    try {
+      const response = await fetch('/api/AddLocation', {
+        method: 'POST',
+        headers: {'content-type': 'application/json'},
+        body: JSON.stringify(newLocation),
+      });
+
+      // Store what the service gave us as the high scores
+      const newLocation = await response.json();
+      localStorage.setItem('newLocation', JSON.stringify(newLocation));
+    } catch {
+      // If there was an error then just track scores locally
+      this.updateScoresLocal(newLocation);
+    }
+
     window.location.href = "LocationInfo.html";
 }
 
