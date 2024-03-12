@@ -61,4 +61,13 @@ These technologies will be used in the following ways.
 - Created DisplayInfo class that will be used to modify an HTML function with new information
 - Created new function for each page that updates the display and database
 - Created new functions to display stored data.
-    
+
+### Service
+ - Moved all files ending in .html, .css, and .js to public folder in main project folder.
+ - installed node.js
+ - Updated .gitignor to read new files
+ - installed express package of node
+ - created index.js file
+ - created new service within index.js for get "/LoadList", get "/LoadData", and post "/AddLocation"
+ - modified .js folders in public folder to use services
+ - added third party service to program in the about page
