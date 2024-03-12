@@ -1,25 +1,24 @@
 const nameEl = document.querySelector("#name");
 localStorage.setItem("userName", nameEl.value);
 
+//calls Location Data service
+async function displayInfo() {
+  try {
+    // Get the latest high scores from the service
+    const response = await fetch('/api/LoadData');
+    PageData = await response.json();
 
-//Total overview
-// 1. make the add button store data
-// 2. modify generic page to display data from location class
-// 3. place a chatbox in page
-// 4. modify locations list to be dependant on locations data
-
-class displayInfo {
-    locationName = null;
-    Adress = null;
-    Review = [];
-    again = [];
-    comments = [];
-    displayInfo(ln, ad, rv, ag){
-        this.locationName = ln;
-        this.Adress = ad;
-        this.Review.add(rv);
-        this.again.add(ag);
+    // Save the scores in case we go offline in the future
+    localStorage.setItem('PageData', JSON.stringify(PageData));
+  } catch {
+    // If there was an error then just use the last saved scores
+    const PageDataText = localStorage.getItem('PageData');
+    if (PageDataText) {
+        PageData = JSON.parse(PageDataText);
     }
+  }
+
+  displayScores(PageData);
 }
 
 
