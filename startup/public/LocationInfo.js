@@ -23,7 +23,7 @@ async function LoadInfo() {
 
 //this function will display all the json data from the PageData and display it from the on the LocationInfo.html page
 function displayInformation(PageData) {
-    
+    //this will go to the locationInfo.html
 }
 
 async function LoadList() {
@@ -47,10 +47,12 @@ async function LoadList() {
 
 //this function will display all the json data on the LocationList.html
 function displaylistInformation(LoadList) {
-    
+    //this will go to locationLiat.html
+    //I need to figure out how to work json
+    //
 }
 
-
+//aparently this does not work
 async function createLocation () {
     //this function will create a class and store information in this class then bring the user to the new page
     const locationname = document.querySelector("#locationname");
