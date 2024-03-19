@@ -1,5 +1,5 @@
 const nameEl = document.querySelector("#name");
-localStorage.setItem("userName", nameEl.value);
+//localStorage.setItem("userName", nameEl.value);
 
 //calls Location Data service
 async function LoadInfo() {

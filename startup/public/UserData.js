@@ -1,14 +1,4 @@
-// function login() {
-//     const username = document.querySelector("#name");
-//     localStorage.setItem("userName", username.value);
-//     window.location.href = "locationlist.html";
-//   }
-
-// function getPlayerName() {
-//     return localStorage.getItem('userName') ?? 'Mystery player';
-//   }
-
-
+//sets index.html page to change display if user is loged in or not
 (async () => {
   const userName = localStorage.getItem('userName');
   if (userName) {
@@ -52,8 +42,8 @@ async function loginOrCreate(endpoint) {
   }
 }
 
-function play() {
-  window.location.href = 'play.html';
+function Login() {
+  window.location.href = 'locationlist.html';
 }
 
 function logout() {
@@ -63,20 +53,20 @@ function logout() {
   }).then(() => (window.location.href = '/'));
 }
 
-async function getUser(email) {
-  let scores = [];
-  // See if we have a user with the given email.
-  const response = await fetch(`/api/user/${email}`);
-  if (response.status === 200) {
-    return response.json();
-  }
+// async function getUser(email) {
+//   let scores = [];
+//   // See if we have a user with the given email.
+//   const response = await fetch(`/api/user/${email}`);
+//   if (response.status === 200) {
+//     return response.json();
+//   }
 
-  return null;
-}
+//   return null;
+// }
 
-function setDisplay(controlId, display) {
-  const playControlEl = document.querySelector(`#${controlId}`);
-  if (playControlEl) {
-    playControlEl.style.display = display;
-  }
-}
+// function setDisplay(controlId, display) {
+//   const playControlEl = document.querySelector(`#${controlId}`);
+//   if (playControlEl) {
+//     playControlEl.style.display = display;
+//   }
+// }
