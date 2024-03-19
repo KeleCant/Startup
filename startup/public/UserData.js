@@ -11,20 +11,23 @@
   }
 })();
 
+//sends endpoint to loginorCreate
 async function loginUser() {
   loginOrCreate(`/api/auth/login`);
 }
 
+//sends endpoint to loginorCreate
 async function createUser() {
   loginOrCreate(`/api/auth/create`);
 }
 
+//Important: This sends the json request to database
 async function loginOrCreate(endpoint) {
   const userName = document.querySelector('#userName')?.value;
   const password = document.querySelector('#userPassword')?.value;
   const response = await fetch(endpoint, {
     method: 'post',
-    body: JSON.stringify({ email: userName, password: password }),
+    body: JSON.stringify({ userName: userName, password: password }),
     headers: {
       'Content-type': 'application/json; charset=UTF-8',
     },
@@ -36,7 +39,7 @@ async function loginOrCreate(endpoint) {
   } else {
     const body = await response.json();
     const modalEl = document.querySelector('#msgModal');
-    modalEl.querySelector('.modal-body').textContent = `⚠ Error: ${body.msg}`;
+    modalEl.querySelector('.modal-body').textContent = `Error: ${body.msg}`;
     const msgModal = new bootstrap.Modal(modalEl, {});
     msgModal.show();
   }
@@ -53,20 +56,18 @@ function logout() {
   }).then(() => (window.location.href = '/'));
 }
 
-// async function getUser(email) {
-//   let scores = [];
-//   // See if we have a user with the given email.
-//   const response = await fetch(`/api/user/${email}`);
-//   if (response.status === 200) {
-//     return response.json();
-//   }
+// Check to see if we have a user with the given userName.
+async function getUser(userName) {
+  const response = await fetch(`/api/user/${userName}`);
+  if (response.status === 200) {
+    return response.json();
+  }
+  return null;
+}
 
-//   return null;
-// }
-
-// function setDisplay(controlId, display) {
-//   const playControlEl = document.querySelector(`#${controlId}`);
-//   if (playControlEl) {
-//     playControlEl.style.display = display;
-//   }
-// }
+function setDisplay(controlId, display) {
+  const playControlEl = document.querySelector(`#${controlId}`);
+  if (playControlEl) {
+    playControlEl.style.display = display;
+  }
+}
