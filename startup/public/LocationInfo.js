@@ -55,37 +55,37 @@ function displaylistInformation(LoadList) {
     //
 }
 
-async function createLocation () {
-  const locationname = document.querySelector("#locationname").value;
-  localStorage.setItem("locationName", locationname);
-      
-  const address = document.querySelector("#adress").value;
-  localStorage.setItem("address", address);
-
-  const again = document.querySelector("#again").checked ? "Yes" : "No";
-  localStorage.setItem("again", again);
-
-  const newLocationData = {
-      locationName: locationname,
-      address: address,
-      again: again
+// Function to create a new location
+async function createLocation() {
+  // Collect location data from HTML inputs
+  const locationData = {
+    locationName: document.querySelector("#locationname").value,
+    address: document.querySelector("#adress").value,
+    again: document.querySelector("#again").checked ? "Yes" : "No"
   };
 
   try {
-      const response = await fetch('/api/AddLocation', {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify(newLocationData),
-      });
+    const response = await fetch('/api/AddLocation', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(locationData),
+    });
 
+    if (response.ok) {
       const newLocation = await response.json();
-      localStorage.setItem('newLocation', JSON.stringify(newLocation));
-  } catch (error) {
-      console.error('Error adding location:', error);
-      // Handle error appropriately, such as showing a message to the user
-  }
+      
+      // Extract the ID of the newly created location
+      const newLocationId = newLocation.id; //store these IDs in the database
 
-  window.location.href = "LocationInfo.html";
+      // Redirect the user to LocationInfo.html with the new location ID appended as a query parameter
+      window.location.href = `LocationInfo.html?id=${newLocationId}`;
+    } else {
+      // Handle error response
+    }
+  } catch (error) {
+    console.error('Error adding location:', error);
+    // Handle error
+  }
 }
 
 // Function to add review
