@@ -56,34 +56,36 @@ function displaylistInformation(LoadList) {
 }
 
 async function createLocation () {
-    //this function will create a class and store information in this class then bring the user to the new page
-    const locationname = document.querySelector("#locationname");
-    localStorage.setItem("locationName", locationname.value);
-        
-    const adress = document.querySelector("#adress");
-    localStorage.setItem("adress", adress.value);
-  
-    const again = document.querySelector("#again");
-    localStorage.setItem("again", again.value);
+  const locationname = document.querySelector("#locationname").value;
+  localStorage.setItem("locationName", locationname);
+      
+  const address = document.querySelector("#adress").value;
+  localStorage.setItem("address", address);
 
-    const newLocation = {locationName: userName, adress: score, again: date, };
+  const again = document.querySelector("#again").checked ? "Yes" : "No";
+  localStorage.setItem("again", again);
 
-    try {
+  const newLocationData = {
+      locationName: locationname,
+      address: address,
+      again: again
+  };
+
+  try {
       const response = await fetch('/api/AddLocation', {
-        method: 'POST',
-        headers: {'content-type': 'application/json'},
-        body: JSON.stringify(newLocation),
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(newLocationData),
       });
 
-      // Store what the service gave us as the high scores
       const newLocation = await response.json();
       localStorage.setItem('newLocation', JSON.stringify(newLocation));
-    } catch {
-      // If there was an error then just track scores locally
-      this.updateScoresLocal(newLocation);
-    }
+  } catch (error) {
+      console.error('Error adding location:', error);
+      // Handle error appropriately, such as showing a message to the user
+  }
 
-    window.location.href = "LocationInfo.html";
+  window.location.href = "LocationInfo.html";
 }
 
 // Function to add review

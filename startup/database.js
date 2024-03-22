@@ -6,9 +6,9 @@ const config = require('./dbConfig.json');
 
 const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostname}`;
 const client = new MongoClient(url);
-const db = client.db('What to do Provo');
+const db = client.db('What_to_do_Provo'); // Updated database name to match your collection name
 const userCollection = db.collection('user');
-const scoreCollection = db.collection('score');
+const locationCollection = db.collection('location'); // Added collection for locations
 
 
 // This will asynchronously test the connection and exit the process if it fails
@@ -42,8 +42,26 @@ async function createUser(userName, password) {
   return user;
 }
 
+// Function to add a location to the database
+async function addLocation(locationName, address, wouldGoAgain) {
+  const location = {
+    locationName: locationName,
+    address: address,
+    wouldGoAgain: wouldGoAgain,
+  };
+  await locationCollection.insertOne(location);
+  return location;
+}
+
+// Function to get all locations from the database
+async function getAllLocations() {
+  return await locationCollection.find().toArray();
+}
+
 module.exports = {
   getUser,
   getUserByToken,
-  createUser
+  createUser,
+  addLocation,
+  getAllLocations
 };

@@ -28,6 +28,11 @@ app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
 
+
+
+
+
+
 //
 //Added with Login Service
 //
@@ -122,18 +127,58 @@ function setAuthCookie(res, authToken) {
 
 let locationList = [];
 
+
 // Load Location List
 apiRouter.get('/LoadList', (_req, res) => {
   res.send(locationList);
 });
 
+
 // Load Location Data
-apiRouter.get('/LoadData', (req, res) => {
-  res.send(locationList[req.body]); //with this code every location will need an id
+apiRouter.get('/LoadData/:locationId', async (req, res) => {
+  const locationId = req.params.locationId;
+  const location = locationList.find(location => location.id === locationId);
+  if (location) {
+    res.send(location);
+  } else {
+    res.status(404).send({ message: 'Location not found' });
+  }
 });
 
+
 // Add Location
-apiRouter.post('/AddLocation', (req, res) => {
-  locationList.push(req.body);
-  res.send(locationList);
+apiRouter.post('/AddLocation', async (req, res) => {
+  try {
+    // Extract location data from the request body
+    const { locationName, address, again } = req.body;
+
+    // Construct the document to be inserted into the database
+    const locationDocument = {
+      id: generateUniqueId(),
+      locationName: locationName,
+      address: address,
+      wouldGoAgain: again
+    };
+
+    // Insert the document into the MongoDB collection
+    const result = await DB.collection('locations').insertOne(locationDocument);
+
+    // Check if insertion was successful
+    if (result.insertedCount === 1) {
+      res.status(201).send({ message: 'Location added successfully' });
+    } else {
+      res.status(500).send({ message: 'Failed to add location' });
+    }
+  } catch (error) {
+    console.error('Error adding location:', error);
+    res.status(500).send({ message: 'Internal server error' });
+  }
 });
+
+
+function generateUniqueId() {
+  const timestamp = Date.now().toString(36); // Convert current timestamp to base36 string
+  const randomChars = Math.random().toString(36).substr(2, 5); // Generate random characters
+  return timestamp + randomChars; // Concatenate timestamp and random characters
+}
+
