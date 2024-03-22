@@ -55,7 +55,6 @@ function displaylistInformation(LoadList) {
     //
 }
 
-//aparently this does not work
 async function createLocation () {
     //this function will create a class and store information in this class then bring the user to the new page
     const locationname = document.querySelector("#locationname");
