@@ -1,29 +1,32 @@
-const nameEl = document.querySelector("#name");
-//localStorage.setItem("userName", nameEl.value);
-
-//calls Location Data service
+// Calls Location Data service
 async function LoadInfo() {
   try {
-    // Get the latest high scores from the service
+    // Get the latest data from the service
     const response = await fetch('/api/LoadData');
-    PageData = await response.json();
+    const pageData = await response.json();
 
-    // Save the scores in case we go offline in the future
-    localStorage.setItem('PageData', JSON.stringify(PageData));
-  } catch {
-    // If there was an error then just use the last saved scores
-    const PageDataText = localStorage.getItem('PageData');
-    if (PageDataText) {
-        PageData = JSON.parse(PageDataText);
+    // Populate HTML elements with the retrieved data
+    document.getElementById("locationPicture").innerHTML = `<img src="${pageData.locationPicture}" alt="Location Picture" />`;
+    document.getElementById("locationName").innerHTML = `<h2>${pageData.locationName}</h2>`;
+    document.getElementById("addressInfo").innerHTML = `<p>${pageData.addressInfo}</p>`;
+    document.getElementById("mapLocation").innerHTML = `<iframe src="${pageData.mapLocation}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>`;
+    document.getElementById("pageCreatorExperience").innerHTML = `<p>${pageData.pageCreatorExperience}</p>`;
+
+    // Save the data in localStorage
+    localStorage.setItem('PageData', JSON.stringify(pageData));
+  } catch (error) {
+    console.error('Error loading data:', error);
+    // If there was an error, try to use the data from localStorage
+    const pageDataText = localStorage.getItem('PageData');
+    if (pageDataText) {
+      const pageData = JSON.parse(pageDataText);
+      document.getElementById("locationPicture").innerHTML = `<img src="${pageData.locationPicture}" alt="Location Picture" />`;
+      document.getElementById("locationName").innerHTML = `<h2>${pageData.locationName}</h2>`;
+      document.getElementById("addressInfo").innerHTML = `<p>${pageData.addressInfo}</p>`;
+      document.getElementById("mapLocation").innerHTML = `<iframe src="${pageData.mapLocation}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>`;
+      document.getElementById("pageCreatorExperience").innerHTML = `<p>${pageData.pageCreatorExperience}</p>`;
     }
   }
-
-  displayInformation(PageData);
-}
-
-//this function will display all the json data from the PageData and display it from the on the LocationInfo.html page
-function displayInformation(PageData) {
-    //this will go to the locationInfo.html
 }
 
 async function LoadList() {
@@ -84,20 +87,11 @@ async function createLocation () {
     window.location.href = "LocationInfo.html";
 }
 
-function addInfo () {
-    //update display
-    this.Review.add(rv);
-    this.again.add(ag);
-}
-
-function getPlayerName() {
-    return localStorage.getItem('userName') ?? 'Mystery player';
-  }
-
-function getLocationName() {
-    return localStorage.getItem('locationName') ?? 'Unknown Location';
-}
-
-function getAdress() {
-    return localStorage.getItem('adress') ?? 'No adress found';
+// Function to add review
+function addInfo() {
+  const review = document.getElementById("Rewiew").value;
+  const wouldGoAgain = document.getElementById("Yes").checked ? "Yes" : "No";
+  // You can perform further actions here, such as sending the review data to the server
+  console.log("Review:", review);
+  console.log("Would Go Again:", wouldGoAgain);
 }
