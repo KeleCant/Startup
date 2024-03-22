@@ -55,8 +55,16 @@ function displaylistInformation(LoadList) {
     //
 }
 
-// Function to create a new location
+
 async function createLocation() {
+  // Check if the user is logged in and has a valid auth token
+  const authToken = localStorage.getItem('authToken');
+  if (!authToken) {
+    // If user is not logged in, show login modal
+    showLoginModal();
+    return;
+  }
+
   // Collect location data from HTML inputs
   const locationData = {
     locationName: document.querySelector("#locationname").value,
@@ -67,20 +75,20 @@ async function createLocation() {
   try {
     const response = await fetch('/api/AddLocation', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${authToken}` // Send auth token in the request headers
+      },
       body: JSON.stringify(locationData),
     });
 
     if (response.ok) {
       const newLocation = await response.json();
-      
-      // Extract the ID of the newly created location
-      const newLocationId = newLocation.id; //store these IDs in the database
-
-      // Redirect the user to LocationInfo.html with the new location ID appended as a query parameter
-      window.location.href = `LocationInfo.html?id=${newLocationId}`;
+      // Handle successful creation, navigate to the new location page or update UI
+      window.location.href = `LocationInfo.html?id=${newLocation.id}`; // Redirect to location info page
     } else {
       // Handle error response
+      // You can display an error message or handle it as per your application logic
     }
   } catch (error) {
     console.error('Error adding location:', error);
@@ -95,4 +103,25 @@ function addInfo() {
   // You can perform further actions here, such as sending the review data to the server
   console.log("Review:", review);
   console.log("Would Go Again:", wouldGoAgain);
+}
+
+
+//
+// Redirection tools
+//
+
+function showLoginModal() {
+  const modal = document.getElementById('loginModal');
+  modal.style.display = 'block';
+}
+
+// Function to close the login modal
+function closeModal() {
+  const modal = document.getElementById('loginModal');
+  modal.style.display = 'none';
+}
+
+// Function to redirect user to the login page
+function redirectToLogin() {
+  window.location.href = 'login.html'; // Adjust the login page URL as per your application
 }

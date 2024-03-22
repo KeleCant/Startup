@@ -20,8 +20,9 @@
   </header>
 
   <main>
+    <body>
     <h1>What To Do: Provo</h1>
-    <h2>Welcome, Username</h2>
+    <h2>Welcome, <dev id="playerName"></dev></h2>
     <h3>Add Location</h3>
     <form id="locationForm">
       <div>
@@ -49,8 +50,19 @@
         <!-- Placeholder for Google Maps or any other map API -->
         <p>Interactive map placeholder</p>
       </div>
-      <button type="button" class="btn btn-primary" onclick="createLocation()">Add</button>
+
+      <button type="button" id="addLocationButton" class="btn btn-primary" onclick="createLocation()">Add</button>
     </form>
+
+    <div id="loginModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <p>Please log in to create a location.</p>
+        <button onclick="redirectToLogin()">Log In</button>
+      </div>
+    </div>
+
+    </body>
   </main>
 
   <footer>
