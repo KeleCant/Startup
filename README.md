@@ -71,3 +71,11 @@ These technologies will be used in the following ways.
  - created new service within index.js for get "/LoadList", get "/LoadData", and post "/AddLocation"
  - modified .js folders in public folder to call services
  - added third party service to program in the about page
+
+### login / Database
+ - Added essential functions for username storage
+ - added essential functions for auth token storage
+ - added encryption for password storage and password storage
+ - Redid HTML format on Location information to provide for database incertion
+ - Worked on addlocations.html, locationinformation, locationinformation.js, UserData.js, database.js,  and index.js to make addlocation functional
+ - Added functionality in which you cannot add a new location unless you are logged in and have an auth token
