@@ -72,12 +72,13 @@ async function createLocation() {
     again: document.querySelector("#again").checked ? "Yes" : "No"
   };
 
+
   try {
     const response = await fetch('/api/AddLocation', {
       method: 'POST',
       headers: { 
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${authToken}` // Send auth token in the request headers
+        // 'Authorization': `Bearer ${authToken}` // Send auth token in the request headers
       },
       body: JSON.stringify(locationData),
     });
@@ -85,9 +86,11 @@ async function createLocation() {
     if (response.ok) {
       const newLocation = await response.json();
       // Handle successful creation, navigate to the new location page or update UI
-      window.location.href = `LocationInfo.html?id=${newLocation.id}`; // Redirect to location info page
+      //window.location.href = `LocationInfo.html?id=${newLocation.id}`; // Redirect to location info page
+      console.log('Location added successfully:', newLocation);
     } else {
       // Handle error response
+      console.error('Error adding location:', response.statusText);
       // You can display an error message or handle it as per your application logic
     }
   } catch (error) {
@@ -95,6 +98,8 @@ async function createLocation() {
     // Handle error
   }
 }
+
+
 
 // Function to add review
 function addInfo() {

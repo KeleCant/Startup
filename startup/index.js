@@ -163,7 +163,8 @@ apiRouter.post('/AddLocation', async (req, res) => {
     };
 
     // Insert the document into the MongoDB collection
-    const result = await DB.locationCollection.insertOne(locationDocument); // Change DB.collection('locations') to DB.locationCollection
+    //const result = await DB.locationCollection.insertOne(locationDocument); // Change DB.collection('locations') to DB.locationCollection
+    const result = await DB.addLocation(locationName, address, again);
 
     // Check if insertion was successful
     if (result.insertedCount === 1) {
