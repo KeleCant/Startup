@@ -13,13 +13,14 @@
 
 //sends endpoint to loginorCreate
 async function loginUser() {
-  loginOrCreate(`/api/auth/login`);
-  window.location.href = 'locationlist.html';
+  const auth =loginOrCreate(`/api/auth/login`);
+  localStorage.setItem('authToken', auth);
 }
 
 //sends endpoint to loginorCreate
 async function createUser() {
-  loginOrCreate(`/api/auth/create`);
+  const auth = loginOrCreate(`/api/auth/create`);
+  localStorage.setItem('authToken', auth);
 }
 
 //Important: This sends the json request to database
@@ -36,7 +37,10 @@ async function loginOrCreate(endpoint) {
 
   if (response.ok) {
     localStorage.setItem('userName', userName);
-    window.location.href = 'play.html';
+    window.location.href = 'LocationList.html';
+    const authToken = getCookie('token');
+    console.log('Authentication successful. Auth token:', authToken);
+    return authToken;
   } else {
     const body = await response.json();
     const modalEl = document.querySelector('#msgModal');
@@ -44,6 +48,17 @@ async function loginOrCreate(endpoint) {
     const msgModal = new bootstrap.Modal(modalEl, {});
     msgModal.show();
   }
+}
+
+function getCookie(name) {
+  const cookies = document.cookie.split('; ');
+  for (const cookie of cookies) {
+    const [cookieName, cookieValue] = cookie.split('=');
+    if (cookieName === name) {
+      return cookieValue;
+    }
+  }
+  return null;
 }
 
 function Login() {

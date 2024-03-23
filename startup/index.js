@@ -43,6 +43,8 @@ app.use(cookieParser());
 // Trust headers that are forwarded from the proxy so we can determine IP addresses
 app.set('trust proxy', true);
 
+
+
 // CreateAuth token for a new user
 apiRouter.post('/auth/create', async (req, res) => {
   if (await DB.getUser(req.body.userName)) {
@@ -71,6 +73,8 @@ apiRouter.post('/auth/login', async (req, res) => {
   }
   res.status(401).send({ msg: 'Unauthorized' });
 });
+
+
 
 // DeleteAuth token if stored in cookie
 apiRouter.delete('/auth/logout', (_req, res) => {
