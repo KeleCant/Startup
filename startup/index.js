@@ -125,8 +125,6 @@ function setAuthCookie(res, authToken) {
 // Page function commands
 //
 
-let locationList = [];
-
 
 // Load Location List
 apiRouter.get('/LoadList', (_req, res) => {
@@ -146,7 +144,7 @@ apiRouter.get('/LoadData/:locationId', async (req, res) => {
 });
 
 
-// Add Location
+// Add Location 
 apiRouter.post('/AddLocation', async (req, res) => {
   try {
     // Extract location data from the request body
@@ -161,7 +159,7 @@ apiRouter.post('/AddLocation', async (req, res) => {
     };
 
     // Insert the document into the MongoDB collection
-    const result = await DB.collection('locations').insertOne(locationDocument);
+    const result = await DB.locationCollection.insertOne(locationDocument); // Change DB.collection('locations') to DB.locationCollection
 
     // Check if insertion was successful
     if (result.insertedCount === 1) {

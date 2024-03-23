@@ -14,6 +14,7 @@
 //sends endpoint to loginorCreate
 async function loginUser() {
   loginOrCreate(`/api/auth/login`);
+  window.location.href = 'locationlist.html';
 }
 
 //sends endpoint to loginorCreate
@@ -59,6 +60,15 @@ function logout() {
 // Check to see if we have a user with the given userName.
 async function getUser(userName) {
   const response = await fetch(`/api/user/${userName}`);
+  if (response.status === 200) {
+    return response.json();
+  }
+  return null;
+}
+
+// Check to see if we have a user with the given userName.
+async function getAuth(userName) {
+  const response = await fetch(`/api/auth/${userName}`);
   if (response.status === 200) {
     return response.json();
   }
