@@ -4,7 +4,7 @@ const socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
 
 // Display that we have opened the webSocket
 socket.onopen = (event) => {
-  appendMsg('system', 'websocket', 'connected');
+    appendMsg('system', 'websocket', 'connected');
 };
 
 // Display messages we receive from our friends
