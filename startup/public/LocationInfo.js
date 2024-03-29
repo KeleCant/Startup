@@ -72,31 +72,32 @@ async function createLocation() {
     again: document.querySelector("#again").checked ? "Yes" : "No"
   };
 
-  //Incert into DataBase
-  try {
-    const response = await fetch('/api/AddLocation', {
-      method: 'POST',
-      headers: { 
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(locationData),
-    });
+  window.location.href = `LocationInfo.html`; // Redirect to location info page
 
-    if (response.ok) {
-      const newLocation = await response.json();
-      // Handle successful creation, navigate to the new location page or update UI
-      //window.location.href = `LocationInfo.html`; // Redirect to location info page
-      window.location.href = `TheTaste.html`;
-      console.log('Location added successfully:', newLocation);
-    } else {
-      // Handle error response
-      console.error('Error adding location:', response.statusText);
-      // You can display an error message or handle it as per your application logic
-    }
-  } catch (error) {
-    console.error('Error adding location:', error);
-    // Handle error
-  }
+  // //Incert into DataBase
+  // try {
+  //   const response = await fetch('/api/AddLocation', {
+  //     method: 'POST',
+  //     headers: { 
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify(locationData),
+  //   });
+
+  //   if (response.ok) {
+  //     const newLocation = await response.json();
+  //     // Handle successful creation, navigate to the new location page or update UI
+  //     //window.location.href = `LocationInfo.html`; // Redirect to location info page
+  //     console.log('Location added successfully:', newLocation);
+  //   } else {
+  //     // Handle error response
+  //     console.error('Error adding location:', response.statusText);
+  //     // You can display an error message or handle it as per your application logic
+  //   }
+  // } catch (error) {
+  //   console.error('Error adding location:', error);
+  //   // Handle error
+  // }
 }
 
 
