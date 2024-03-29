@@ -72,7 +72,7 @@ async function createLocation() {
     again: document.querySelector("#again").checked ? "Yes" : "No"
   };
 
-
+  //Incert into DataBase
   try {
     const response = await fetch('/api/AddLocation', {
       method: 'POST',
@@ -85,7 +85,8 @@ async function createLocation() {
     if (response.ok) {
       const newLocation = await response.json();
       // Handle successful creation, navigate to the new location page or update UI
-      //window.location.href = `LocationInfo.html?id=${newLocation.id}`; // Redirect to location info page
+      //window.location.href = `LocationInfo.html`; // Redirect to location info page
+      window.location.href = `TheTaste.html`;
       console.log('Location added successfully:', newLocation);
     } else {
       // Handle error response
