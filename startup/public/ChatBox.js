@@ -30,6 +30,12 @@ socket.onclose = (event) => {
 
 // Send a message over the webSocket
 function sendMessage() {
+    //check to see if user is loged in
+    if (userName == null) {
+        document.querySelector('#chat-controls').disabled = true;
+    } else {
+        document.querySelector('#chat-controls').disabled = false;
+    }
   const msgEl = document.querySelector('#new-msg');
   const msg = msgEl.value;
   if (!!msg) {
@@ -50,7 +56,13 @@ function appendMsg(cls, from, msg) {
 // Send message on enter keystroke
 const input = document.querySelector('#new-msg');
 input.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') {
+  //check to see if user is loged in
+  if (userName == null) {
+    document.querySelector('#chat-controls').disabled = true;
+} else {
+    document.querySelector('#chat-controls').disabled = false;
+}
+    if (e.key === 'Enter') {
     sendMessage();
   }
 });
