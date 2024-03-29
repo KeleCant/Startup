@@ -77,8 +77,7 @@ async function createLocation() {
     const response = await fetch('/api/AddLocation', {
       method: 'POST',
       headers: { 
-        'Content-Type': 'application/json',
-        // 'Authorization': `Bearer ${authToken}` // Send auth token in the request headers
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify(locationData),
     });
