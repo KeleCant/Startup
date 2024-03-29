@@ -109,3 +109,8 @@ body {
   text-decoration: none;
   cursor: pointer;
 }
+
+#chat-text {
+  padding: 1em 0;
+  color: rgb(105, 211, 240);
+}
