@@ -2,10 +2,17 @@
 const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
 const socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
 const userName = localStorage.getItem('userName'); 
+const authToken = localStorage.getItem('authToken');
 
 // This will display if the websocket is working or not
 socket.onopen = (event) => {
     appendMsg('system', 'websocket', 'connected');
+    //check to see if user is loged in
+    if (!authToken) {
+        document.querySelector('#chat-controls').disabled = true;
+    } else {
+        document.querySelector('#chat-controls').disabled = false;
+    }
 };
 
 // Display messages we receive from our friends
@@ -46,11 +53,4 @@ input.addEventListener('keydown', (e) => {
   if (e.key === 'Enter') {
     sendMessage();
   }
-});
-
-// Disable chat if no name provided
-const chatControls = document.querySelector('#chat-controls');
-const myName = document.querySelector('#my-name');
-myName.addEventListener('keyup', (e) => {
-  chatControls.disabled = myName.value === '';
 });

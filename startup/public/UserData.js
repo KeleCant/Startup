@@ -13,7 +13,7 @@
 
 //sends endpoint to loginorCreate
 async function loginUser() {
-  const auth =loginOrCreate(`/api/auth/login`);
+  const auth = loginOrCreate(`/api/auth/login`);
   localStorage.setItem('authToken', auth);
 }
 
