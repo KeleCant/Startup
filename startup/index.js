@@ -27,7 +27,7 @@ app.use((_req, res) => {
   res.sendFile('index.html', { root: 'public' });
 });
 
-app.listen(port, () => {
+server = app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
 
@@ -201,11 +201,11 @@ let connections = [];
 let id = 0;
 
 // Handle the protocol upgrade from HTTP to WebSocket
-// server.on('upgrade', (request, socket, head) => {
-//   wss.handleUpgrade(request, socket, head, function done(ws) {
-//     wss.emit('connection', ws, request);
-//   });
-// });
+server.on('upgrade', (request, socket, head) => {
+  wss.handleUpgrade(request, socket, head, function done(ws) {
+    wss.emit('connection', ws, request);
+  });
+});
 
 wss.on('connection', (ws) => {
   const connection = { id: ++id, alive: true, ws: ws };

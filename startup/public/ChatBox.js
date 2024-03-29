@@ -1,8 +1,9 @@
 // Adjust the webSocket protocol to what is being used for HTTP
 const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
 const socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
+const userName = localStorage.getItem('userName'); 
 
-// Display that we have opened the webSocket
+// This will display if the websocket is working or not
 socket.onopen = (event) => {
     appendMsg('system', 'websocket', 'connected');
 };
@@ -17,7 +18,6 @@ socket.onmessage = async (event) => {
 // If the webSocket is closed then disable the interface
 socket.onclose = (event) => {
   appendMsg('system', 'websocket', 'disconnected');
-  document.querySelector('#name-controls').disabled = true;
   document.querySelector('#chat-controls').disabled = true;
 };
 
@@ -26,9 +26,8 @@ function sendMessage() {
   const msgEl = document.querySelector('#new-msg');
   const msg = msgEl.value;
   if (!!msg) {
-    appendMsg('me', 'me', msg);
-    const name = document.querySelector('#my-name').value;
-    socket.send(`{"name":"${name}", "msg":"${msg}"}`);
+    appendMsg(userName, userName, msg);
+    socket.send(`{"name":"${userName}", "msg":"${msg}"}`);
     msgEl.value = '';
   }
 }
