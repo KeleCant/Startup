@@ -111,6 +111,17 @@ body {
 }
 
 #chat-text {
-  padding: 1em 0;
-  color: rgb(105, 211, 240);
+  padding: 5em;
+  color: rgb(255, 255, 255);
+  background-color: rgb(32, 158, 207);
+  border: 5px solid black;
+  border-radius: 25px;
+}
+
+#chat-controls {
+  padding: 5em;
+  color: rgb(255, 255, 255);
+  background-color: rgb(207, 32, 207);
+  border: 5px solid black;
+  border-radius: 25px;
 }
