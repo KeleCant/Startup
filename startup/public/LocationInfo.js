@@ -59,7 +59,8 @@ function displaylistInformation(LoadList) {
 async function createLocation() {
   // Check if the user is logged in and has a valid auth token
   const authToken = localStorage.getItem('authToken');
-  if (!authToken) {
+  const userName = localStorage.getItem('userName'); 
+  if (userName == null) {   //fixme Auth token verification isnt functioning properly
     // If user is not logged in, show login modal
     showLoginModal();
     return;

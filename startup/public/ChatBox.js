@@ -8,7 +8,7 @@ const authToken = localStorage.getItem('authToken');
 socket.onopen = (event) => {
     appendMsg('system', 'websocket', 'connected');
     //check to see if user is loged in
-    if (!authToken) {
+    if (userName == null) {
         document.querySelector('#chat-controls').disabled = true;
     } else {
         document.querySelector('#chat-controls').disabled = false;
