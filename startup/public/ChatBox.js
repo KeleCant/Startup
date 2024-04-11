@@ -45,6 +45,7 @@ function sendMessage() {
   }
 }
 
+
 // Create one long list of messages
 function appendMsg(cls, from, msg) {
   const chatText = document.querySelector('#chat-text');
@@ -52,6 +53,7 @@ function appendMsg(cls, from, msg) {
   chatEl.innerHTML = `<span class="${cls}">${from}</span>: ${msg}</div>`;
   chatText.prepend(chatEl);
 }
+
 
 // Send message on enter keystroke
 const input = document.querySelector('#new-msg');
