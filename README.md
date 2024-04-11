@@ -79,3 +79,12 @@ These technologies will be used in the following ways.
  - Redid HTML format on Location information to provide for database incertion
  - Worked on addlocations.html, locationinformation, locationinformation.js, UserData.js, database.js,  and index.js to make addlocation functional
  - Added functionality in which you cannot add a new location unless you are logged in and have an auth token
+
+### Websocket
+ - Installed Websocket softwear in index.js
+ - Created new JavaScript file called ChatBox.js that will mannage the websocket chat box commands.
+ - modified locationinfo.html to contain websocket chatbox
+ - modified location list quick links to take you to locationinfo.html
+ - modified main.css to make websocket chatbox have style
+ - modified locationinfo.js and userdata.js to make the login work properly. You shouldn't be able to creat a new location unless you are logged in.
+ - modified ChatBox.js to only allow you to type in websocket if you are logged in.
