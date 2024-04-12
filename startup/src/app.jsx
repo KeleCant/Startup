@@ -5,13 +5,14 @@ import { Addlocations } from './addlocations/addlocations';
 import { LocationInfo } from './LocationInfo/LocationInfo';
 import { Locationlist } from './locationlist/locationlist';
 import { Login } from './login/login';
-import { TheTaste } from './TheTaste/TheTaste';
+import { AuthState } from './login/authState';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
 
 export default function App() {
   const [userName, setUserName] = React.useState(localStorage.getItem('userName') || '');
-  //const [authState, setAuthState] = React.useState(currentAuthState);
+  const currentAuthState = userName ? AuthState.Authenticated : AuthState.Unauthenticated;
+  const [authState, setAuthState] = React.useState(currentAuthState);
 
     return (
       <BrowserRouter>
@@ -24,27 +25,14 @@ export default function App() {
             </header>
   
             <Routes>
-              {/* <Route path='/' element={<Login userName={userName} authState={authState} onAuthChange={(userName, authState) => {setAuthState(authState); setUserName(userName);}}/>} exact/> */}
-              {/* <Route
-                path='/'
-                element={
-                  <Login
-                    userName={userName}
-                    authState={authState}
-                    onAuthChange={(userName, authState) => {
-                    setAuthState(authState);
-                    setUserName(userName);
-                    }}
-                  />
-                }
-              exact
-              /> */}
-              <Route path='/' element={<Login />} />
+            <Route
+            path='/'
+            element={
+              <Login userName={userName}authState={authState}onAuthChange={(userName, authState) => {setAuthState(authState);setUserName(userName);}}/>}exact/>
               <Route path='/locationlist' element={<Locationlist />} />
-              <Route path='/addlocations' element={<Addlocations />} />
+              <Route path='/addlocations' element={<Addlocations userName={userName}/>} />
               <Route path='/about' element={<About />} />
-              <Route path='/LocationInfo' element={<LocationInfo />} />
-              <Route path='/TheTaste' element={<TheTaste />} />
+              <Route path='/LocationInfo' element={<LocationInfo userName={userName}/>} />
               <Route path='*' element={<NotFound />} />
             </Routes>
   
