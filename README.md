@@ -99,4 +99,4 @@ These technologies will be used in the following ways.
  - Installed routers for each function created in app.jsx and created pathways for each route to be accesed by app.jsx
  - converted about.html to about.jsx
  - modiefied app.css to work with react, height in body is the main change to fix flex feature
- - locations.jsx working
+ - locations.jsx modified to rediirect you and changed style
