@@ -101,3 +101,4 @@ These technologies will be used in the following ways.
  - modiefied app.css to work with react, height in body is the main change to fix flex feature
  - locations.jsx modified to rediirect you and changed style
  - Deleted the taste files
+ - every page is created and present, functions are still not present
