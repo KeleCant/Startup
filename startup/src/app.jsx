@@ -21,10 +21,10 @@ export default function App() {
     return (
         <body>
             <header>
-                <div class="inline"> <a href="index.html">Home</a> </div>
-                <div class="inline"> <a href="locationlist.html">Locations</a> </div>
-                <div class="inline"> <a href="addlocations.html">Add Location</a> </div>
-                <div class="inline"> <a href="about.html">About</a></div>
+                <div class="inline"> <NavLink className='nav-link' to=''> Home </NavLink> </div>
+                <div class="inline"> <NavLink className='nav-link' to='locationlist'> Locations </NavLink> </div>
+                <div class="inline"> <NavLink className='nav-link' to='addlocations'> Add Location </NavLink> </div>
+                <div class="inline"> <NavLink className='nav-link' to='about'> About </NavLink> </div>
             </header>
   
             <main>App components go here</main>
