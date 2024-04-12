@@ -102,3 +102,4 @@ These technologies will be used in the following ways.
  - locations.jsx modified to rediirect you and changed style
  - Deleted the taste files
  - every page is created and present, functions are still not present
+ - Login / Logout function added / redirect added
