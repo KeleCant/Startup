@@ -3,11 +3,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
 
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
-import { about } from './about/about';
-import { addlocations } from './addlocations/addlocations';
+import { About } from './about/about';
+import { Addlocations } from './addlocations/addlocations';
 import { LocationInfo } from './LocationInfo/LocationInfo';
-import { locationlist } from './locationlist/locationlist';
-import { login } from './login/login';
+import { Locationlist } from './locationlist/locationlist';
+import { Login } from './login/login';
 import { TheTaste } from './TheTaste/TheTaste';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -27,11 +27,23 @@ export default function App() {
                 <div class="inline"> <NavLink className='nav-link' to='about'> About </NavLink> </div>
             </header>
   
-            <main>App components go here</main>
+            <Routes>
+                <Route path='/' element={<Login />} exact />
+                <Route path='/locationlist' element={<Locationlist />} />
+                <Route path='/addlocations' element={<Addlocations />} />
+                <Route path='/about' element={<About />} />
+                <Route path='/LocationInfo' element={<LocationInfo />} />
+                <Route path='/TheTaste' element={<TheTaste />} />
+                <Route path='*' element={<NotFound />} />
+            </Routes>
   
             <footer>
                 <a href="https://github.com/KeleCant/Startup">GitHub</a>
             </footer>
         </body>
     );
+  }
+
+  function NotFound() {
+    return <main className='container-fluid bg-secondary text-center'>404: Return to sender. Address unknown.</main>;
   }

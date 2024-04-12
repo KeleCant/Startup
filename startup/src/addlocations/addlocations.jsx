@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function addlocations() {
+export function Addlocations() {
   return (
     <main className='container-fluid bg-secondary text-center'>
       <div> addlocations displayed here </div>
