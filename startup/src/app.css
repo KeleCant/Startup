@@ -56,6 +56,13 @@ main {
     padding: 1em;
     margin-bottom: 1em;
   }
+
+  .new.location {
+    border-radius: 10px;
+    background: hsla(312, 100%, 88%, 0.89);
+    padding: 1em;
+    margin-bottom: 1em;
+  }
 }
   
 footer {
