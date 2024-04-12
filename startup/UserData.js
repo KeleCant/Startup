@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 //sets index.html page to change display if user is loged in or not
 (async () => {
   const userName = localStorage.getItem('userName');

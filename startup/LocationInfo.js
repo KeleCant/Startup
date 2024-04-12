@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 // Calls Location Data service
 async function LoadInfo() {
   try {
