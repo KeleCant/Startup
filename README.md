@@ -88,3 +88,15 @@ These technologies will be used in the following ways.
  - modified main.css to make websocket chatbox have style
  - modified locationinfo.js and userdata.js to make the login work properly. You shouldn't be able to creat a new location unless you are logged in.
  - modified ChatBox.js to only allow you to type in websocket if you are logged in.
+
+### React
+ - created new Service and src folders. Rearanged most files to corrodinate with react structure
+ - instaled vite, installed react
+ - created index.html and index.jsx files
+ - created app.jsc and app.css in src folder
+ - created nav links in app.jsx
+ - created src/about/about.jsx/About(), scr/addlocation/addlocation.jsx/Addlocation(), src/LocationInfo/LocationInfo.jsx/LocationInfo(), src/locationlist/locationlist.jsx/Locationlist(), src/login/login.jsx/Login(), src/TheTaste/TheTaste.jsx/TheTaste()
+ - Installed routers for each function created in app.jsx and created pathways for each route to be accesed by app.jsx
+ - converted about.html to about.jsx
+ - modiefied app.css to work with react, height in body is the main change to fix flex feature
+ - 
