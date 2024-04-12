@@ -2,9 +2,23 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
 
+import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
+import { about } from './about/about';
+import { addlocations } from './addlocations/addlocations';
+import { LocationInfo } from './LocationInfo/LocationInfo';
+import { locationlist } from './locationlist/locationlist';
+import { login } from './login/login';
+import { TheTaste } from './TheTaste/TheTaste';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <BrowserRouter>
+    <div className='body bg-dark text-light'> sub-elements here </div>
+  </BrowserRouter>
+);
+
 export default function App() {
     return (
-      <div className='body bg-dark text-light'>
         <body>
             <header>
                 <div class="inline"> <a href="index.html">Home</a> </div>
@@ -19,6 +33,5 @@ export default function App() {
                 <a href="https://github.com/KeleCant/Startup">GitHub</a>
             </footer>
         </body>
-      </div>
     );
   }
