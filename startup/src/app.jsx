@@ -11,8 +11,7 @@ import './app.css';
 
 export default function App() {
   const [userName, setUserName] = React.useState(localStorage.getItem('userName') || '');
-  const currentAuthState = userName ? AuthState.Authenticated : AuthState.Unauthenticated;
-  const [authState, setAuthState] = React.useState(currentAuthState);
+  //const [authState, setAuthState] = React.useState(currentAuthState);
 
     return (
       <BrowserRouter>
@@ -25,13 +24,28 @@ export default function App() {
             </header>
   
             <Routes>
-            <Route path='/' element={<Login userName={userName} authState={authState} onAuthChange={(userName, authState) => {setAuthState(authState); setUserName(userName);}}/>} exact/>
-                <Route path='/locationlist' element={<Locationlist />} />
-                <Route path='/addlocations' element={<Addlocations />} />
-                <Route path='/about' element={<About />} />
-                <Route path='/LocationInfo' element={<LocationInfo />} />
-                <Route path='/TheTaste' element={<TheTaste />} />
-                <Route path='*' element={<NotFound />} />
+              {/* <Route path='/' element={<Login userName={userName} authState={authState} onAuthChange={(userName, authState) => {setAuthState(authState); setUserName(userName);}}/>} exact/> */}
+              {/* <Route
+                path='/'
+                element={
+                  <Login
+                    userName={userName}
+                    authState={authState}
+                    onAuthChange={(userName, authState) => {
+                    setAuthState(authState);
+                    setUserName(userName);
+                    }}
+                  />
+                }
+              exact
+              /> */}
+              <Route path='/' element={<Login />} />
+              <Route path='/locationlist' element={<Locationlist />} />
+              <Route path='/addlocations' element={<Addlocations />} />
+              <Route path='/about' element={<About />} />
+              <Route path='/LocationInfo' element={<LocationInfo />} />
+              <Route path='/TheTaste' element={<TheTaste />} />
+              <Route path='*' element={<NotFound />} />
             </Routes>
   
             <footer>
@@ -45,4 +59,3 @@ export default function App() {
   function NotFound() {
     return <main className='container-fluid bg-secondary text-center'> 404: Return to sender. Address unknown. </main>;
   }
-
