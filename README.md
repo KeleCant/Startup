@@ -103,3 +103,4 @@ These technologies will be used in the following ways.
  - Deleted the taste files
  - every page is created and present, functions are still not present
  - Login / Logout function added / redirect added
+ - Added redirect on addlocations page, I didnt add the store data feture becuse I never figured out how to do that regularly
